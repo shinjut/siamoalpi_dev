@@ -15,3 +15,5 @@ composer.phar
 gruntfile.js
 siamoalpi.sublime-project
 siamoalpi.sublime-workspace
+package.json
+package-lock.json
