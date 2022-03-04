@@ -7,7 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xl': '1440px',
+        '2xl': '1920'
+      },
       fontSize: {
+        // come ti dicevo, questi paramentri da rifare
         'xxs': '.65rem',
         '4xl': '2rem',
         '5xlb': ['2.8rem', '3.2rem' ],
@@ -34,6 +39,7 @@ module.exports = {
         '270': '270deg',
       },
       lineHeight: {
+        // anche qui, da rifare...
         'snug': '1.4rem',
         'snug1': '2.4rem',
         '12': '2.7rem',
