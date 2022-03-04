@@ -1,0 +1,56 @@
+@import 'public/site/templates/styles/modifiche.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+	@font-face {
+		font-family: Morion;
+		src:	url('fonts/Morion-Semibold.eot'); /* IE9 Compat Modes */
+		src:	url('fonts/Morion-Semibold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+				url('fonts/Morion-Semibold.woff2') format('woff2'), /* Super Modern Browsers */
+				url('fonts/Morion-Semibold.woff') format('woff'); /* Pretty Modern Browsers */
+		font-weight: 600;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: Moderat-Bold;
+		src:	url('fonts/Moderat-Bold.eot'); /* IE9 Compat Modes */
+		src:	url('fonts/Moderat-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+				url('fonts/Moderat-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+				url('fonts/Moderat-Bold.woff') format('woff'); /* Pretty Modern Browsers */
+		font-weight: 700;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: Moderat-Light;
+		src:	url('fonts/Moderat-Light.eot'); /* IE9 Compat Modes */
+		src:	url('fonts/Moderat-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+				url('fonts/Moderat-Light.woff2') format('woff2'), /* Super Modern Browsers */
+				url('fonts/Moderat-Light.woff') format('woff'); /* Pretty Modern Browsers */
+		font-weight: 300;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: Moderat;
+		src:	url('fonts/Moderat-Regular.eot'); /* IE9 Compat Modes */
+		src:	url('fonts/Moderat-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+				url('fonts/Moderat-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+				url('fonts/Moderat-Regular.woff') format('woff'); /* Pretty Modern Browsers */
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	/*base rem font size*/
+	html{
+		font-size: 22px;
+	}
+}
+
+[x-cloak] { display: none !important; }

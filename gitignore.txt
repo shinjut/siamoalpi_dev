@@ -1,0 +1,17 @@
+public/wire/
+public/site/assets/
+public/site/modules/
+public/site/templates/js/components/
+public/site/ftpsync.settings
+public/site/config.php
+public/site/ftpsync.settings
+crb_code/
+_docs/
+node_modules/
+vendor/
+composer.json
+composer.lock
+composer.phar
+gruntfile.js
+siamoalpi.sublime-project
+siamoalpi.sublime-workspace

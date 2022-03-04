@@ -1,0 +1,59 @@
+@rock-primary: #0e9b7e; // verde logo
+//@rock-primary: #bc283d; // porpora 
+
+
+//non so se il font lo prende da "assets" oppure da "templates/styles/fonts" 
+@font-face {
+  font-family: 'Moderat-Bold';
+  src: url('fonts/Moderat-Bold.woff2') format('woff2'), url('fonts/Moderat-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Moderat-Light';
+  src: url('fonts/Moderat-Light.woff2') format('woff2'), url('fonts/Moderat-Light.woff') format('woff');
+}
+
+@global-font-family: 'Moderat-Light';
+@global-font-family-heavy: 'Moderat-Bold';
+@base-heading-font-family: @global-font-family-heavy;
+@global-font-size: 19px;
+
+//navbar
+@navbar-nav-item-color: #000;
+@navbar-nav-item-hover-color: @global-muted-color;
+@navbar-nav-item-active-color: @global-muted-color; 
+@navbar-dropdown-nav-item-color: #000;
+
+.ui-menu .ui-menu-item a {
+	color: black;
+} 
+.PageList .PageListActions a, .PageList .PageListerActions a, .PageList .PageListMoveNote a,
+.uk-navbar.uk-navbar-container .uk-navbar-nav > li > a,
+.ui-button{
+	font-family: 'Moderat-Bold' !important;
+} 
+
+//loginRegister Pro
+.ProcessLogin #wrap_register_codice,
+.ProcessLogin ul.LoginRegisterLinks li.LoginRegisterLinksRegister,{
+  visibility: hidden;
+  height: 10px;
+  overflow: hidden;
+}
+
+.LoginRegisterPro .Inputfield:not(.InputfieldSubmit){
+  padding: 0 !important;
+}
+
+.LoginRegisterPro .uk-alert-success.uk-alert{
+  color: @rock-primary;
+}
+
+// documentazione qui https://processwire.com/blog/posts/pw-3.0.179/
+// variabili Reno Theme: https://github.com/processwire/processwire/blob/dev/wire/modules/AdminTheme/AdminThemeUikit/uikit-pw/styles/reno.less
+
+
+// tolgo il campo NOME perche' da' fastidio a chi compila la scheda...
+li#wrap_Inputfield__pw_page_name{
+  visibility: hidden;
+}

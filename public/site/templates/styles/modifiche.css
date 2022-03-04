@@ -1,0 +1,45 @@
+/* *** modifiche ed aggiunte da apportare a tailwind *** */
+/* questo file viene importato da tailwind.css, che si trova nel root del progetto */
+
+body.landing-home{
+	.landing-body{
+		h1,h2{
+			@apply text-white font-serif uppercase text-4xl mb-7 mt-12 lg:mt-14 leading-snug1 lg:leading-12;
+			letter-spacing: 0.045rem;
+		}
+		p{
+			@apply mb-3;
+		}
+		p small{
+			@apply text-sm;
+		}
+		a{
+			@apply pb-0 lg:pb-1 border-b-2 border-white hover:border-0
+		}
+
+	}
+
+}
+
+#credits p.credits{
+	bottom: 2rem;
+	padding-top: 17.3rem;
+
+}
+
+/* ALGOLIA */
+#hits{
+	button:disabled{
+	background-color: #999;
+	cursor: not-allowed;
+	}
+}
+/*.ais-SearchBox-input{
+	border:  gray 1px solid;
+}*/
+
+/*.algCard{
+	width: 400px;
+	border:  1px solid red;
+	display: inline;
+}*/

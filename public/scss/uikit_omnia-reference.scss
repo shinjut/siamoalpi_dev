@@ -1,0 +1,569 @@
+//local//
+// @font-face { font-family: MuseoSans100; src: url("/omniastyle/public/site/templates/styles/fonts/MuseoSans_100.otf") format("opentype");}
+// @font-face { font-family: MuseoSans700; src: url("/omniastyle/public/site/templates/styles/fonts/MuseoSans_700.otf") format("opentype");}
+// @font-face { font-family: MuseoSlab100; src: url("/omniastyle/public/site/templates/styles/fonts/MuseoSlab_100.otf") format("opentype");}
+// @font-face { font-family: MuseoSlab500; src: url("/omniastyle/public/site/templates/styles/fonts/MuseoSlab_500.otf") format("opentype");}
+ 
+//live//
+@font-face { font-family: MuseoSans100; src: url("/site/templates/styles/fonts/MuseoSans_100.otf") format("opentype");}
+@font-face { font-family: MuseoSans700; src: url("/site/templates/styles/fonts/MuseoSans_700.otf") format("opentype");}
+@font-face { font-family: MuseoSlab100; src: url("/site/templates/styles/fonts/MuseoSlab_100.otf") format("opentype");}
+@font-face { font-family: MuseoSlab500; src: url("/site/templates/styles/fonts/MuseoSlab_500.otf") format("opentype");}
+
+/* CRB function */
+@function px2em($pixels, $context: 20) {
+	@return #{$pixels/$context}em;
+}
+
+// 1. Your custom variables and variable overwrites.
+
+
+$verde: #00702fff;
+$rosso: #e63b11ff;
+$marrone: #4b3b07;
+
+$global-color: black;
+$global-link-color: $rosso;
+$global-muted-color: #999 !default; // unchanged
+$global-font-size: 20px !default;
+// $global-primary-background: #1e87f0 !default;
+$global-success-background: $verde !default;
+// $alert-success-color: $global-success-background !default;
+// $global-warning-background: #faa05a !default;
+$global-danger-background: $rosso !default;
+$global-primary-background: $verde !default;
+
+$offcanvas-bar-background: $verde !default;
+$offcanvas-bar-color-mode: normal !default;
+
+
+$global-gutter: 20px !default;
+$global-medium-gutter: $global-gutter !default;
+
+$global-font-family: 'MuseoSans100', sans-serif, !default;
+// $global-link-color: black !default;
+$global-link-hover-color: black !default;
+$base-heading-font-family: 'MuseoSlab100' !default;
+$navbar-nav-item-font-family: $global-font-family !default;
+$nav-default-item-active-color: $global-color  !default;
+//$text-lead-font-size: $global-large-font-size !default;
+
+$navbar-background: white !default;
+$navbar-toggle-color: $global-color !default; //swapped
+$navbar-toggle-hover-color: $global-muted-color !default; //swapped
+
+
+$breadcrumb-item-font-size: px2em(16) !default; //sim=13, troppo piccolo?
+$breadcrumb-item-color: white !default;
+$breadcrumb-item-hover-color: white !default;
+$breadcrumb-item-hover-text-decoration: underline !default;
+$breadcrumb-item-active-color: white !default;
+$breadcrumb-divider: "/" !default;
+$breadcrumb-divider-margin-horizontal: 10px !default;
+$breadcrumb-divider-color: white !default;
+
+// $dotnav-item-background: $ !default;
+$dotnav-item-hover-background: $verde !default;
+$dotnav-item-onclick-background: $rosso !default;
+$dotnav-item-active-background: $verde !default;
+$dotnav-item-width: 14px !default;
+
+
+$width-medium-width: 370px !default;
+$width-large-width: 760px !default;
+
+$h1-font-size: px2em(48) !default;
+
+$button-font-size: px2em(23) !default;
+$button-padding-horizontal: 25px !default;
+$button-line-height: 55px !default;
+// 2. Import default variables and available mixins.
+@import "../node_modules/uikit/src/scss/variables.scss";
+@import "../node_modules/uikit/src/scss/mixins.scss";
+
+// 3. Your custom mixin overwrites.
+@mixin hook-card() { color: #000; }
+
+
+// 4. Import UIkit.
+@import "../node_modules/uikit/src/scss/uikit.scss";
+
+///////////////////////////////////////// CRB
+@mixin cardMediaTopImageBG($height){
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: $height;
+}
+
+//navbat top
+	//override default
+	.uk-navbar-left .uk-navbar-item{//, .uk-navbar-toggle{
+		align-items: flex-start; 
+	}
+	// modificato navbarToggleIcon in /js/uikit.js, camviando valori svg 
+	.uk-navbar-container{
+		@media(max-width: $breakpoint-small){
+			min-height:110px;
+		}
+		i{
+			margin-right:5px;
+			font-size: 1.5em;
+		}
+		.uk-link{
+			color:black;
+			border-bottom: 1px solid black;
+			padding-bottom:3px;	
+		}
+		option{
+			padding:3em;
+			line-height: 2em;
+		}
+	}
+	.uk-offcanvas-bar{
+		img{
+			margin:70px 0 30px;
+		}
+		ul > li a{
+			text-transform: uppercase;
+			color:white;
+			@media(min-width: $breakpoint-small){
+				font-size: px2em(24);
+			}
+		}
+		ul.uk-nav-sub{
+			margin: -6px 0 7px;		
+			& > li a{
+				text-transform: lowercase;
+				color:white;
+			}
+		}
+		li.li-divider{
+			margin-top: 10px;
+		}
+		a.button-apt{
+			border: 1px solid white;
+			font-family: MuseoSans100;
+			text-transform: none;
+			padding: 10px 2px;
+			line-height: 1.3em;
+			@media (min-width: $breakpoint-small) {
+				margin: 22px 50px 0;
+			}
+			@media (max-width: $breakpoint-small) {
+				font-size: px2em(19);
+			}
+		}
+	}
+
+.uk-slideshow, ul.uk-slideshow-items li{
+	max-height: 500px; 
+    overflow: hidden
+}
+
+.slideIntro{
+	max-width: 600px;
+	background-color:rgba($rosso, 0.8);
+	font-family: MuseoSans700;
+	text-align: left;
+	p{
+		color:white;
+		padding: px2em(12);
+		font-size: px2em(22);
+		@media (min-width: $breakpoint-small){
+		//padding: px2em(35);
+		font-size: px2em(48);
+		line-height: px2em(24);
+		}
+	}
+}
+
+ul.uk-breadcrumb{
+	background-color: $rosso;
+	margin-top: 0;
+	margin-bottom: 0;
+	height: 40px;
+	z-index: 999;
+	li{
+		color: white;
+		text-transform: uppercase;
+		font-family: MuseoSans700;
+		// font-weight: 900; // 900 non c'e'
+		margin-top: 6px;
+	}
+	&.moreGutter{
+		padding-bottom: $global-gutter;
+	}
+	&.breadUp{
+		margin-top: -0.8em;
+		padding-bottom: 0.9em;
+	}
+}
+main{
+	margin-top: 25px;
+}
+
+h1, .news-list h2{
+	font-size: $h1-font-size;
+}
+a.uk-button{
+	font-family: MuseoSlab500;
+}
+
+em{
+	color: $global-color;
+}
+
+.red-background{
+	background-color: $rosso;
+	img{
+		margin: 0 auto;
+	}
+	h1{
+		color:white;
+		text-transform: uppercase;
+		padding-top:40px;
+		margin-bottom: 0px; 
+	}
+}
+.green-background{
+	background-color: $verde;
+	color: white;
+}
+.brown-background{
+	background-color: $marrone;
+	color:white;
+}
+
+.newsletterBox{
+	// margin-top: 75px;
+	//height: 300px;
+	img {
+		padding: px2em(55) 0;
+		display:block;
+		width:11em;
+		&.left{
+			margin-left:80px;
+		}
+		&.right{
+			margin-right:80px;
+		}
+
+	}
+	.fix776 p{
+		color:white;
+		padding-top:1.25em;
+		font-size: px2em(26);
+		padding-left: 10px;
+		padding-right: 10px;
+		@media(min-width: $breakpoint-small){
+			max-width: 776px;
+			padding: 35px;
+			font-size: px2em(48);
+			line-height: px2em(24);
+			margin-bottom: 0;
+		}
+		// @media(max-width: $breakpoint-small){
+
+		// }
+		strong{
+			font-family: MuseoSans700;
+		}
+	}
+	.uk-button.uk-button-primary{
+		@media(max-width: $breakpoint-small){
+			margin-bottom: 1.5em;
+		}
+	}
+}
+
+.novita{
+	h4{ // novita
+		font-size: px2em(48);
+	}
+	margin-top: 56px;
+	.uk-slider-items{
+		a{
+			text-decoration: none;
+			color: black;
+		}
+		.newsTag{
+			padding-left:0.7em;
+			line-height: 2.5em;
+		}
+		h5{ // titoli articoli
+			font-size: px2em(23);
+			font-family: MuseoSlab500;
+			margin: 26px 50px 26px 20px;
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+		p{
+			margin: 0 50px 6px 20px;
+
+		}
+		img{
+			border:1px solid white;
+		}
+	}
+}
+#map{
+	height:480px;
+	margin-top: $global-gutter*2;
+}
+
+.footerVero{
+	padding: 60px 0;
+
+	.footerMenu{
+		ul{
+			@media(max-width:$breakpoint-small){
+				padding-left: 0;
+				margin-bottom: 1em;
+			}
+			list-style: none;
+			li{
+				font-size: px2em(27);
+				text-transform: uppercase;
+				line-height:1.7em;
+				a{
+					color:white;
+				}
+				img{
+					margin-bottom:12px;
+				}
+				select.uk-select{
+					max-width: 9em;
+					font-size: 0.7em;
+				}
+			}
+
+		}
+	}
+	.footerLookbook{
+		.uk-inline{
+			@media(max-width:$breakpoint-small){
+				margin:1em;
+			}
+		}
+		img{
+			width: 380px;
+			height: 380px;
+			border: 2px solid white;
+		}
+		a{
+			font-size: px2em(30);
+			padding: 1em 0.8em;
+		}
+	}
+	.footerContact{
+		@media(max-width: $breakpoint-small){
+			text-align: center;
+		}
+	}
+	.icons a i{
+	    font-size: 1.5em;
+	    padding-right:0.2em;
+		color: white;
+		&:hover{
+			color: darken($verde, 5%);
+		}
+	}
+}
+.uk-width-medium {
+    margin-left: 10px;
+    padding-left: 10px;
+}
+/* homepage */
+	.card-home{
+		a:hover{
+			text-decoration:none;
+		}
+		.uk-card-media-top{
+			@include cardMediaTopImageBG(440px);
+		}
+		.uk-card-body{
+			padding:0;
+			background-color: $verde;
+			height: 55px;
+			h3{
+				color: white;
+				font-family: MuseoSlab500;
+				margin-top: 8px;
+			}
+		}
+	}
+	body.home{
+		.content{
+			margin-top: 87px;
+			margin-bottom: 105px;
+		}
+		.newsletterBox{ // overrides above
+			margin-top: 0px;
+		}
+
+	}
+
+/* basic page (abbigliamento) */
+	.shoppageConent{
+		padding-bottom: 60px;
+	}
+	.card-basicpage{
+		.uk-card-media-top{
+			@include cardMediaTopImageBG(540px);
+		}
+		// .uk-card-body{
+		// 	padding:0;
+		// 	background-color: $verde;
+		// 	height: 55px;
+		// 	h3{
+		// 		color: white;
+		// 		font-family: MuseoSlab500;
+		// 		margin-top: 8px;
+		// 	}
+		// }
+	}
+
+
+/* shoppage */
+	body.shop-page, body.apartment, body.lookbook{
+		h1{
+			padding-top: 25px;
+		}
+		.lookbook{
+			margin-top: 56px;
+				@media(max-width: $breakpoint-small){
+					margin-left: -12px;
+					margin-right: 6px;
+				}
+			img{
+				margin:10px;
+			}
+		}
+	}
+
+/* news */
+	.NewsContent{
+		padding-bottom:60px;
+	}
+	.newsTag{
+		font-family: MuseoSans700;
+		text-transform: uppercase;
+		font-size: px2em(13);
+		margin-right: .8em;
+		letter-spacing: 0.1em;
+		&::before{
+			content: "#";
+			margin-right:0.1em;
+		}
+	}
+	article{
+		position: relative;
+		border-bottom: 1px solid black;
+		padding-bottom: 2.8em;
+		margin-bottom: 3em;
+		img.introImage{
+			margin-bottom: $global-gutter*2;
+		}
+		
+		h2{
+			margin: 12px 0 30px;
+		}
+		a i{
+			color: #333;
+			border: white 5px solid;
+			background-color: white;
+			padding: 3px;
+			margin:-2px;
+		}
+		.articleIcons{
+			position:absolute;
+			bottom: -23px;
+			width: 100%;
+			.first{padding-left: 0.7em;}
+			.last{padding-right: 0.7em;}
+		}
+	}
+
+	.news-categorie{
+		padding: 1em;
+		h3{
+			text-transform: uppercase;
+			color: white;
+			font-family: MuseoSlab500;
+		}
+		ul{
+			list-style: none;
+			text-transform: uppercase;
+			padding-left: 0;
+			li{
+				margin-bottom: 0.5em;
+				letter-spacing: 0.1em;
+			}
+			li a{
+				color:white;
+				font-weight: bold;
+			}
+		}
+		ul > li:before {
+			content: "#";
+			text-indent: -5px;
+			margin-right:5px;
+		}
+	}
+
+	.pagination-article, .pagination{
+		li a{
+			font-family: MuseoSans700;
+			color: black;
+
+		}
+		li.uk-active a{
+				color: #999;
+			}
+	}
+	.latest-articles{
+		h3{
+			font-family: MuseoSlab500;
+			margin: 20px 0 10px;
+		}
+		.uk-card{
+			border-top:1px solid black;
+			padding:5px 0;
+		}
+		.uk-card-header{
+			padding-left: 0;
+		}
+		h4.uk-card-title{
+			font-family: MuseoSlab500;
+			font-size: px2em(22);
+		}
+	}
+
+/* apartment */
+	body.apartment{
+		.uk-breadcrumb{
+			background-color: $marrone;
+		}
+		aside{
+			margin-left: 20px;
+			.apt-box{
+				padding: $global-gutter;
+				margin: $global-gutter;
+				h2{
+					color:white;
+					font-size: px2em(23);
+					// font-family: MuseoSans700;
+				}
+			}
+		}
+
+	}
+// general?
+.uk-card-body{
+	h2{
+		font-weight: bold;
+	}
+}

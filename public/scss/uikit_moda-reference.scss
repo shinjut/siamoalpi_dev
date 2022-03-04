@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700&display=swap');
+@import url("https://use.typekit.net/res4xek.css");
+
+/* 
+Neo Sans W1G Bold
+	font-family: neo-sans, sans-serif;
+	font-weight: 700;
+	font-style: normal;
+
+Neo Sans W1G Medium
+	font-family: neo-sans, sans-serif;
+	font-weight: 500;
+	font-style: normal;
+
+Neo Sans W1G Regular
+	font-family: neo-sans, sans-serif;
+	font-weight: 400;
+	font-style: normal; 
+*/
+
+// 1. Your custom variables and variable overwrites.
+$global-font-family: 'Roboto', sans-serif, !default;
+// $base-heading-font-family: 'Roboto', sans-serif, !default;
+$base-heading-font-family: 'neo-sans', sans-serif, !default;
+$global-font-size: 18px;
+
+$azzurro: #00ab90; // 2
+// $azzurro: #009fe0;
+$verde: #fddb43; // 1 giallo
+// $verde: #64b334;
+$global-color: black;
+$global-link-color: $azzurro;
+// $global-muted-color: #999 !default; // default
+$global-muted-background: #f8f8f8;
+
+//bg
+$global-primary-background: $azzurro !default;
+$global-secondary-background: $verde !default;
+
+//offcanvas
+$offcanvas-bar-background: $verde !default;
+$offcanvas-bar-color-mode: normal !default;
+
+//navbar
+$navbar-nav-item-font-family: $base-heading-font-family !default;
+$nav-default-item-active-color: $global-color  !default;
+$navbar-nav-item-color: #333 !default;
+$navbar-nav-item-hover-color: $azzurro !default;
+$navbar-nav-item-active-color: lighten($global-color, 50) !default;
+
+$navbar-background: white !default;
+$navbar-toggle-color: $global-color !default; //swapped
+//$navbar-toggle-hover-color: $global-muted-color !default; //swapped
+
+//button
+$button-secondary-background: white !default;
+$button-secondary-color: black !default;
+$button-secondary-hover-background: white !default;
+$button-secondary-hover-color: $azzurro !default;
+$border-rounded-border-radius: 5px !default; // default
+
+// h1
+$global-xxlarge-font-size: 2.58rem !default; // smaller for h1 frame
+$base-h1-line-height: 1.2 !default;
+
+
+// border
+$borderBox: 4px;
+// 2. Import default variables and available mixins.
+@import "../node_modules/uikit/src/scss/variables.scss";
+@import "../node_modules/uikit/src/scss/mixins.scss";
+
+// 3. Your custom mixin overwrites.
+@mixin TextOnGradient(){
+	background: linear-gradient(to right, $verde 0%, $azzurro 100%);   
+	color: white;
+	opacity: 0.9;
+	// padding: 1em 0.5em;
+}
+
+// 4. Import UIkit.
+@import "../node_modules/uikit/src/scss/uikit.scss";
+
+//navbar & intro
+	.uk-navbar-container .uk-logo{
+		margin: 20px 0;
+	}
+	@media(min-width: $breakpoint-large){
+	.uk-navbar-container{
+			padding: 0.5em 2em;
+		}
+	}
+
+	.uk-navbar-nav > li > a {
+		font-weight:500;
+	}
+
+	.langCode{
+		margin-left: 2.5em;
+		a.uk-icon-button{
+			width: 24px;
+			height:24px;
+			font-size: 0.75em;
+			// border:solid 1px $azzurro;
+			&:hover{
+				text-decoration: none;
+				background-color: $azzurro;
+				color: white;
+			}
+			&.langActive{
+				color: $azzurro;
+				&:hover{
+					background-color: $global-muted-background;
+				}
+			}
+		}
+	}
+
+	.heightIntroBG{
+		height: 630px;
+		@media(min-width: $breakpoint-large-max){
+			height: 800px;
+
+		}
+	}
+	.introBG{
+		background-size:cover;
+		.uk-card{
+			@media(min-width: $breakpoint-medium){
+				margin-left: 160px;
+				padding: 2.8em 3em 2em;
+			}
+			@media(max-width: $breakpoint-medium){
+				padding: 1em;
+				margin: 1em;
+				background-color: rgba(white,0.8);
+			}
+
+			border:solid $borderBox $verde;
+			h1{
+				padding:0;
+				font-weight: 300;
+				strong{
+					font-weight: 800;
+				}
+			}
+			p{
+				font-weight: 300;
+			}
+		}
+	}
+
+//offcanvas
+	#mobileNav{
+		ul.uk-nav li{
+			a{
+				color:black;
+			}
+			&.uk-active a{
+				color:$azzurro;
+			}
+			&.uk-margin-bottom{
+				padding-bottom: 1em;
+			}
+		}
+	}
+
+//button
+	.uk-button-secondary{
+		border: 2px solid $azzurro;
+		@extend .uk-border-rounded;
+	}
+	button.uk-button-primary:disabled{
+		background-color:$azzurro;
+		color:white;
+	}
+	
+	
+	/* cool animation draw https://webdevtrick.com/css-border-transition-effects/ */
+		a.drawLine {
+		  border: 0;
+		  box-sizing: border-box;
+		  box-shadow: inset 0 0 0 2px $azzurro;
+		  position: relative;
+		  vertical-align: middle;
+		  border-radius: $border-rounded-border-radius;
+		}
+		a.drawLine::before, a.drawLine::after {
+		  box-sizing: inherit;
+		  content: '';
+		  position: absolute;
+		  width: 100%;
+		  height: 100%;
+		  border-radius: $border-rounded-border-radius;
+		}
+		.draw {
+		  transition: color 0.25s;
+		}
+		.draw::before, .draw::after {
+		  border: 2px solid transparent;
+		  border-radius: $border-rounded-border-radius;
+		  width: 0;
+		  height: 0;
+		}
+		.draw::before {
+		  top: 0;
+		  left: 0;
+		}
+		.draw::after {
+		  bottom: 0;
+		  right: 0;
+		}
+		.draw:hover {
+		  color: $azzurro;
+		}
+		.draw:hover::before, .draw:hover::after {
+		  width: 100%;
+		  height: 100%;
+		}
+		.draw:hover::before {
+		  border-radius: $border-rounded-border-radius;
+		  border-top-color: $verde;
+		  border-right-color: $verde;
+		  transition: color 2s ease-out, width 0.25s ease-out, height 0.25s ease-out 0.25s;
+		}
+		.draw:hover::after {
+		  border-radius: $border-rounded-border-radius;
+		  border-bottom-color: $verde;
+		  border-left-color: $verde;
+		  transition: color 2s ease-out, border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s;
+		}
+h1{
+	@extend .uk-border-rounded;
+	padding: 0.3em 1em;
+}
+.gradient{
+	@include TextOnGradient;
+	height:4px;
+}
+section.main{
+	background: url('images/mm44.svg');
+	background-position: bottom;
+	background-repeat: repeat-x;
+	padding-bottom: $global-gutter*8;
+}
+
+.cardWhiteBG{
+	background-color: rgba(white, 0.8)
+}
+
+footer{
+	color:white;
+	#company{
+
+		padding: $global-gutter*2 0 $global-gutter;
+		//background: linear-gradient(to right, $verde 0%, $azzurro 100%), 
+		//url('images/mm3.svg');
+		background-color: $azzurro;
+		@include TextOnGradient;
+		//background-image: url('images/mm3.svg');
+		//background-blend-mode: screen, difference, lighten;
+	}
+
+	strong.Hfooter{
+		display: block;
+		margin-bottom: 0.1em;
+		font-size: 1.5em;
+		font-weight:700;
+	}
+}
+/* home */
+	body.home{
+		.unoc h3{
+			color: $azzurro;
+			font-weight: 700;
+		}
+	}
+
+/* features */
+	body.features{
+		#miniMenuContainer{
+			z-index:1;
+		}
+		#miniMenu{
+			background-color: rgba(white, 0.8);
+			margin: $global-gutter*4.6 $global-gutter 0 0;
+			padding: $global-gutter;
+			border-top: $verde $borderBox solid;
+			border-bottom: $azzurro $borderBox solid;
+			li.uk-active a{
+				color:$azzurro;
+			}
+		}
+		.featureCard{
+			margin-top: $global-gutter*4;
+		}
+		.featureBody{
+			width:50%;
+			margin: $global-gutter;
+		}
+	}
+
+/* contact */
+ body.contact{
+
+ 	#contactBox{
+ 		background-color: rgba(white, 0.8);
+ 		h1{
+ 			@media(min-width: $breakpoint-medium){
+ 				margin-top: -0.75em;
+ 			}
+ 		}
+ 		form label{
+ 			@extend .uk-text-capitalize;
+ 		}
+ 	}
+ }
+
+/* 
+o forse preparare immagine prima, per evitare di caricarne due?
+.gradient-on-image {
+ background:
+ linear-gradient(purple 0%, red 80%),
+ linear-gradient(to right, purple 0%, yellow 100%),   url("image.jpg");
+ background-blend-mode: screen, difference, lighten;
+ }
+
+ .two-image-stacked {
+ background-image: url("image.jpg"), url("image-2.jpg");
+ background-color: purple;
+ background-blend-mode: lighten;
+ }
+
+ */

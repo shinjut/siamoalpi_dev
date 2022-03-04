@@ -1,0 +1,265 @@
+//fonts
+@font-face {
+	font-family: Moderat-Bold;
+	src: url('fonts/Moderat-Bold.woff2') format('woff2'), url('fonts/Moderat-Bold.woff') format('woff');
+}
+@font-face {
+	font-family: Moderat-Light;
+	src: url('fonts/Moderat-Light.woff2') format('woff2'), url('fonts/Moderat-Light.woff') format('woff');
+}
+
+$fontBold: "Moderat-Bold", sans-serif;
+
+//$global-font-family: "Neuzeit S LT W03 Book", sans-serif, !default;
+$global-font-family: "Moderat-Light", sans-serif, !default; // gm
+$global-font-family-heavy: $fontBold;
+$base-heading-font-family: $global-font-family-heavy;
+$global-font-size: 19px !default;
+/* uikit variables */
+
+	// //colors
+	$porporaPWscuro: #bc283d;
+	$porporaPWchiaro: #e83561;
+	$verdePW: #3eb998;
+	$verdeSiamoAlpi: #0e9b7e;
+	$global-color: black;
+	$global-link-color: $porporaPWscuro; 
+	// $global-emphasis-color: #333;
+	$global-link-hover-color: $porporaPWchiaro;
+	// $base-heading-color: $global-color;
+	// $global-muted-color: #999 !default; // d
+	// $linkHoverColor: rgba($global-color,0.5);
+	$base-em-color: $global-color;
+
+	// //spaces
+	$container-max-width: 1600px; // come PW
+
+	// //logo
+	// $logo-font-size: 22px !default;
+	// $logo-font-family: $base-heading-font-family !default;
+
+	// //button
+	$button-default-background: $verdePW !default;
+	$button-default-hover-background: $porporaPWchiaro !default;
+	$button-default-color: white !default;
+	// $button-font-size: $global-font-size - 4px !default;
+	// $button-padding-horizontal: $global-gutter - 12px !default;
+	// $button-default-hover-color: black !default;
+
+	// //navbar
+	// $navbar-background: white !default;
+	// //navbar in modal
+	// $nav-item-padding-vertical: 0px !default;
+	// $nav-item-padding-horizontal: 0 !default;
+	// $nav-divider-margin-vertical: 0px !default;
+	// $nav-divider-margin-horizontal: 0 !default;
+	// $nav-header-font-size: 32px !default;
+	// $nav-header-margin-top: 0px !default;
+	// $nav-default-item-color: black !default;
+	// $nav-default-item-hover-color: white !default;
+	// $nav-default-item-active-color: white !default; 
+	// $modal-close-position: $global-gutter !default;
+	// $modal-close-padding: $global-gutter !default;
+
+	// //cards
+	// $card-title-font-size: $global-font-size + 3px !default;
+
+	// //bread
+	// $breadcrumb-divider: "/" !default;
+	// $breadcrumb-divider-margin-horizontal: 6px !default;
+	// $breadcrumb-divider-color: black !default;
+	// $breadcrumb-item-font-size: 0.7rem !default; // or  0.875rem !default;
+	// $breadcrumb-item-color: black !default;
+	// $breadcrumb-item-hover-color: rgba($global-color, 0.8) !default;
+	// $breadcrumb-item-hover-text-decoration: underline !default;
+	// $breadcrumb-item-active-color: rgba($global-color, 0.8) !default;
+
+	// //hr
+	// $base-hr-margin-vertical: 3px !default;
+	// $base-hr-border: #666 !default;
+
+	// //tabs (archivio)
+	// $tab-margin-horizontal: 20px !default;
+	// $tab-item-padding-horizontal: 0px !default; // ex10
+	// $tab-item-padding-vertical: 0px !default; // ex 5
+ // 	$tab-item-color: $global-muted-color !default;
+	// $tab-item-hover-color: $global-muted-color !default;
+	// $tab-item-hover-text-decoration: underline !default;
+	// $tab-item-active-color: $global-color !default;
+
+
+
+/* CRB function */
+	@function px2em($pixels, $context: 20) {
+		@return #{$pixels/$context}em;
+	}
+	@mixin aHoverColor(){
+		color:$linkHoverColor;
+		transition:0.25s linear;
+		text-decoration: none;
+	}
+
+// 2. Import default variables and available mixins.
+	@import "../../node_modules/uikit/src/scss/variables.scss";
+	@import "../../node_modules/uikit/src/scss/mixins.scss";
+
+	// 3. Your custom mixin overwrites.
+	@mixin hook-card() { color: #000; }
+
+	// 4. Import UIkit.
+	@import "../../node_modules/uikit/src/scss/uikit.scss";
+
+
+/* ////////////////////////////////////////////////////////// */
+
+
+
+
+/* GUIDA */
+body.gestionale_guida{
+	h1{
+		margin: 1.2em 0 .5em;
+		line-height: 1.15em;
+	}
+	/* form commenti */
+	p.CommentFormEmail.CommentForm_email{
+		margin-top: 0;
+	}
+	p.CommentFormSubmit.CommentForm_submit button{
+		@extend .uk-button;
+		@extend .uk-button-default;
+		border-radius: 3px;
+	}
+
+	/* public */
+	p strong{
+		font-family: $fontBold;
+	}
+}
+
+/* questionario */
+body.questionario {
+	form.uk-form{
+		label {
+			width: 2em;
+			height: 2em;
+			line-height: 2em;
+			border-radius: 50%;
+			text-align: center;
+			border: 3px solid $verdeSiamoAlpi;
+			background-color: $verdeSiamoAlpi;
+			color: white;
+			font-family: $fontBold;
+		}
+		textarea, select{
+			border: 1px solid black;
+		}
+		
+		//override ultimi due label
+		#wrap_Inputfield_eta label,
+		#wrap_Inputfield_residenza label,
+		#wrap_Inputfield_note label,
+		//e gli altri del questionario invio foto
+		#wrap_Inputfield_luogo label,
+		#wrap_Inputfield_immagine label,
+		#wrap_Inputfield_descrizione label,
+		#wrap_Inputfield_anno label,
+		#wrap_Inputfield_ente label
+		{
+			width: 100%;
+			border-radius: 0;
+			text-align: left;
+			border: none;
+			background-color: white;
+			color: black;
+		}
+		#wrap_Inputfield_residenza{
+			margin-top: 5em;
+		}
+		
+		#wrap_Inputfield_note{ // campo extra catalogatori login
+			// visibility: hidden;
+			display: none;
+		}
+
+
+		.uk-form-horizontal.uk-form-label{
+			width: 2em;
+		}
+
+		.uk-form-large.InputfieldMaxWidth{
+			width: 95%;
+			padding-right: 10px;
+		}
+		.uk-form-row {
+			margin-bottom: 23px;
+		}
+
+		// specifiche sempre form invio foto
+		#Inputfield_descrizione {
+		    width: 100%;
+		    padding: 10px;
+		}
+		.uk-text-muted{
+			color: black !important;
+			font-size: .9em;
+		}
+		 
+
+		// per ora li metto qua, forse dopo faranno parte dello style button
+		.uk-button,
+		.uk-button:focus{
+			background-color: $verdeSiamoAlpi;
+			color: white;
+			font-family: $fontBold;
+			margin-top: 2em;
+		}
+		.uk-button:hover{
+			background-color: darken($verdeSiamoAlpi, 4);
+		}
+
+		input{
+			background-color: white;
+			border: 1px solid black;
+			@extend .uk-input;
+		}
+
+		// specifiche sempre form invio foto
+		#wrap_Inputfield_immagine li.InputfieldFormBuilderFileUpload input{
+			padding: 10px;
+			height: 60px;
+		}
+		#wrap_Inputfield_ente select{
+			padding: 10px;
+		}
+		#wrap_Inputfield_ente{
+			padding-top: 5px;
+		}
+	}
+	img.logo{
+		margin-top: 1.5em;;
+	}
+	p a{
+		text-decoration: underline;
+		&:hover{
+			text-decoration: none;
+		}
+	}
+	#wrap_Inputfield-.Inputfield_codice{ //honeypot
+		visibility: hidden;
+		height: 1px;
+		overflow: hidden;
+	}
+	//success
+	.uk-alert.uk-alert-success{
+		background-color: #fbfffe;
+		color: $verdeSiamoAlpi;
+		border: 2px solid $verdeSiamoAlpi;
+		font-size: 1.16em;
+	}
+	@media (min-width: 960px){
+		.uk-form-horizontal .uk-form-controls{
+			margin-left: 100px;
+		}
+	}
+}
